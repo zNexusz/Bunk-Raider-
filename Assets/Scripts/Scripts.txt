@@ -1,0 +1,18 @@
+Player
+-PlayerMovement
+-Shootbullet
+.boxcolider
+.rigidbody
+.Wall(material)
+,groundCheck gizmo(child)
+tag:Player
+Bullet
+-Bullet Destroy
+.boxcolider(trigger)
+.rigidbody(kinetic)
+tag:Block
+Block
+-BlockScript
+.boxcolider
+,layer(Ground)
+tag:BreakBlock
