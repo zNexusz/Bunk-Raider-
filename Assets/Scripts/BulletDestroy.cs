@@ -4,17 +4,51 @@ using UnityEngine;
 
 public class BulletDestroy : MonoBehaviour
 {
-  void Update()
-  {
-        
-  }
+	public float speed;
+	private Transform player;
+	private Vector2 target;
 
-	void OnTriggerEnter2D(Collider2D other)
+
+
+	void Start()
 	{
-		if(other.tag == "BreakBlock")
+		player = GameObject.FindGameObjectWithTag("Player").transform;
+		target = new Vector2(player.position.x, player.position.y);
+
+	}
+
+	void Update()
+	{
+		transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+		if(transform.position.x == target.x && transform.position.y == target.y)
 		{
-			Destroy(gameObject);   
+			DestroyBullet();
 		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.CompareTag("Player"))
+		{
+	
+			gameObject.GetComponent<Renderer>().enabled = false;
+			StartCoroutine(DestroyBullet());
+		}
+
+		if (other.CompareTag("Enemy"))
+		{
+			
+			gameObject.GetComponent<Renderer>().enabled = false;
+			StartCoroutine(DestroyBullet());
+		}
+
+	}
+
+	IEnumerator DestroyBullet()
+	{
+		yield return new WaitForSeconds(1f);
+		Destroy(gameObject);
 	}
 }
 

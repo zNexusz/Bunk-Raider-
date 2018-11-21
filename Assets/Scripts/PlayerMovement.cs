@@ -22,9 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	public float Lspeed;
 	private float inputHorizontal;
 	private float inputVertical;
-	public float distance;
-	public LayerMask whatIsLadder;
-	private bool isClimbing;
+
 
 
 
@@ -46,29 +44,6 @@ public class PlayerMovement : MonoBehaviour
         }else if(facingRight == true && moveInput < 0){
             Flip();
         }
-		//ladder
-		inputHorizontal = Input.GetAxis("Horizontal");
-		rb.velocity = new Vector2(inputHorizontal * Lspeed, rb.velocity.y);
-		RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
-
-		if(hitInfo.collider != null)
-		{
-			if (Input.GetKeyDown(KeyCode.W))
-			{
-				isClimbing = true;
-			}
-		}else {
-			isClimbing = false;
-		}
-
-		if(isClimbing == true)
-		{
-			inputVertical = Input.GetAxis("Vertical");
-			rb.velocity = new Vector2(rb.position.x, inputVertical * Lspeed);
-			rb.gravityScale = 0;
-		} else{
-			rb.gravityScale = 1;
-		}
 			
     }
     void Update(){
@@ -83,31 +58,32 @@ public class PlayerMovement : MonoBehaviour
         }else if(Input.GetKeyDown("w") && xJump == 0 && isGrounded == true){
             rb.velocity = Vector2.up * JForce;
         }
+
     }
   void Flip()
   {
       facingRight = !facingRight;
-      Vector3 Scaler = transform.localScale;
+      Vector2 Scaler = transform.localScale;
       Scaler.x *= -1;
       transform.localScale = Scaler;
   }
 
 	//ladder
-	/*void OnTriggerStay2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.tag == "Ladder" && Input.GetKey(KeyCode.W))
 		{
-			rb.velocity = new Vector2(0, speedlad);
+			rb.velocity = new Vector2(0, Lspeed);
 
 		}
 		else if (other.tag == "Ladder" && Input.GetKey(KeyCode.S))
 		{
-			rb.velocity = new Vector2(0, -speedlad);
+			rb.velocity = new Vector2(0, -Lspeed);
 		}
 		else
 		{
 			rb.velocity = new Vector2(0, 0.19621f);
 		}
 
-	}*/
+	}
 }
