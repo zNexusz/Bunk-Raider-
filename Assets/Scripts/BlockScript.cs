@@ -18,7 +18,7 @@ public class BlockScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Bullet")){
+		if (other.CompareTag("pBullet")){
 	
 			health -= damage;
 

@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{608C75BC-B74E-00AB-E0D1-BA0823678567}</ProjectGuid>
+    <ProjectGuid>{713BB3A3-E17F-B3A6-5754-E91B5185B5ED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,25 +71,25 @@
     <Compile Include="Assets\Scripts\Shootbullet.cs" />
     <None Include="Assets\Scripts\Scripts.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Android.Editor">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/Unity.Analytics.Android.Editor.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/Unity.Analytics.Android.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>N:/GitHub/Bunk Raider/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0a9/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -284,19 +284,19 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0a9/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>N:/GitHub/Bunk Raider/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>N:/GitHub/Bunk Raider/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>N:/GitHub/Bunk Raider/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/PackageCache/com.unity.analytics@3.0.9/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics">
-      <HintPath>N:/GitHub/Bunk Raider/Library/PackageCache/com.unity.analytics@3.0.9/Android/Unity.Analytics.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/PackageCache/com.unity.analytics@3.0.9/Android/Unity.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>N:/GitHub/Bunk Raider/Library/PackageCache/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Nexus/UnityStuff/Bunk-Raider-/Library/PackageCache/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0a9/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
