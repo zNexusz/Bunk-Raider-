@@ -20,9 +20,9 @@ public class PlayerHealth : MonoBehaviour
     {
 		if(health <= 0)
 		{
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 		}
-
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

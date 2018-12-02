@@ -27,16 +27,16 @@ public class BulletDestroy : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerEnter2D(Collider2D hitinfo)
 	{
-		if (other.CompareTag("Player"))
+		if (hitinfo.CompareTag("Player"))
 		{
 	
 			gameObject.GetComponent<Renderer>().enabled = false;
 			StartCoroutine(DestroyBullet());
 		}
 
-		if (other.CompareTag("Enemy"))
+		if (hitinfo.CompareTag("Enemy"))
 		{
 			
 			gameObject.GetComponent<Renderer>().enabled = false;
@@ -47,7 +47,7 @@ public class BulletDestroy : MonoBehaviour
 
 	IEnumerator DestroyBullet()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.3f);
 		Destroy(gameObject);
 	}
 }

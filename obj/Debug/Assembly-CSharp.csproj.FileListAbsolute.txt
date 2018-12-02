@@ -1,2 +1,4 @@
 N:\GitHub\Bunk Raider\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 N:\GitHub\Bunk Raider\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Nexus\UnityStuff\Bunk-Raider-\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Nexus\UnityStuff\Bunk-Raider-\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -13,7 +13,7 @@ public class pBulletDestroy : MonoBehaviour
 
 	void Start()
 	{
-		StartCoroutine(NDestroy());
+		StartCoroutine(Destroy());
 	}
 
 	void Update()
@@ -22,22 +22,14 @@ public class pBulletDestroy : MonoBehaviour
 
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerEnter2D(Collider2D hitinfo)
 	{
-		if (other.CompareTag("pBullet"))
-		{
-			StartCoroutine(DestroyBullet());
-		}
-	}
-
-
-	IEnumerator DestroyBullet()
-	{
-		yield return new WaitForSeconds(0.5f);
 		Destroy(gameObject);
+		gameObject.GetComponent<Renderer>().enabled = false;
 	}
 
-	IEnumerator NDestroy()
+
+	IEnumerator Destroy()
 	{
 		yield return new WaitForSeconds(1.5f);
 		Destroy(gameObject);

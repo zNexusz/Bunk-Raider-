@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,12 +12,14 @@ public class Enemy : MonoBehaviour
 	public float pDistance;
 	public int health;
 	public int damage;
-
+	public Vector2 offset;
+	private Rigidbody2D rb;
 
 	private float timeBtwShots;
 	public float startTimeBtwShots;
 	public GameObject projectile;
 	public Transform player;
+	public GameObject Player;
 
 
 	#endregion
@@ -23,11 +27,15 @@ public class Enemy : MonoBehaviour
 	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+		rb.gravityScale = 1;
 		timeBtwShots = startTimeBtwShots;
-    }
+		Player = GameObject.FindGameObjectWithTag("Player");
+
+	}
 
 
-    void Update()
+	void Update()
     {
 
 			Distance = Vector2.Distance(transform.position, player.position);
@@ -48,7 +56,7 @@ public class Enemy : MonoBehaviour
 
 		if(health < 4)
 		{
-			pDistance = 50;
+			StartCoroutine(Chase());
 		}
 
 		if(health <= 0)
@@ -57,18 +65,31 @@ public class Enemy : MonoBehaviour
 		}
 
 	}
+	
+	IEnumerator Chase()
+	{
+		Distance *= 10f;
+		yield return new WaitForSeconds(1);
+		Distance /= 10f;
+	}
 
 	void Shoot()
 	{
-		if (timeBtwShots < -00)
+		if (Player.activeInHierarchy == true)
 		{
-			Instantiate(projectile, transform.position, Quaternion.identity);
-			timeBtwShots = startTimeBtwShots;
+			if (timeBtwShots < -00)
+			{
+				Instantiate(projectile, new Vector2(transform.position.x, transform.position.y) + offset * transform.localScale.x, Quaternion.identity);
+				timeBtwShots = startTimeBtwShots;
+				Destroy(projectile, 1);
+			}
+			else
+			{
+				timeBtwShots -= Time.deltaTime;
+			}
 		}
-		else
-		{
-			timeBtwShots -= Time.deltaTime;
-		}
+
+			
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -76,6 +97,10 @@ public class Enemy : MonoBehaviour
 		if (other.CompareTag("pBullet"))
 		{
 			health -= damage;
+		}
+		if (other.CompareTag("Ladder"))
+		{
+			rb.gravityScale = 0;
 		}
 	}
 	#endregion

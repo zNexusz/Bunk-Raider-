@@ -12,7 +12,8 @@ public class Shootbullet : MonoBehaviour
 	public Transform player;
 	private Rigidbody2D rb;
 	public float speed;
-	public float side;
+	private float side;
+	public float BulletTime;
 
 	
 	void Start()
@@ -46,6 +47,7 @@ public class Shootbullet : MonoBehaviour
 		cBullet = Instantiate(Bullet, new Vector2(player.position.x, player.position.y) + offset * transform.localScale.x, Quaternion.identity);
 		GameObject go = (GameObject)cBullet;
 		go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * speed, 0);
+		Destroy(cBullet, BulletTime);
 
 	}
 }

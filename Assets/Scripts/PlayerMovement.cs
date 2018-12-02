@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float JForce;
+	private float speed=3;
+	private float JForce=5;
     private float moveInput;
 	private float VerticalInput;
     private Rigidbody2D rb;
-    private bool facingRight = true;
-
-    private bool isGrounded;
+	private bool facingRight = true;
+	private bool isGrounded;
     public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+	private float checkRadius=0.1f;
+	public LayerMask whatIsGround;
 
-    private int xJump;
+	private float checkWRadius=0.3f;
+	private bool isWall;
+	public Transform wallCheck;
+	public LayerMask whatIsWall;
+
+	private int xJump;
     public int xJumpValue;
 	//ladder
-	public float Lspeed;
+	private float Lspeed=5;
 	private float inputHorizontal;
 	private float inputVertical;
+
+	private float checkLRadius=0.3f;
+	private bool isLadder;
+	public Transform LadderCheck;
+	public LayerMask whatIsLadder;
+	public float FallForce;
+
 
 
 
@@ -29,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start(){
         rb = GetComponent<Rigidbody2D>();
-    }
+	}
 
-    
 
-  void FixedUpdate()
+
+	void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -52,15 +63,28 @@ public class PlayerMovement : MonoBehaviour
             xJump = xJumpValue;
         }
 
-        if(Input.GetKeyDown("w") && xJump > 0){
+        if(Input.GetKeyDown("w") && xJump > 0 && isWall == false){
             rb.velocity = Vector2.up * JForce;
             xJump--;
-        }else if(Input.GetKeyDown("w") && xJump == 0 && isGrounded == true){
+        }else if(Input.GetKeyDown("w") && xJump == 0 && isGrounded == true && isWall == false)
+		{
             rb.velocity = Vector2.up * JForce;
         }
 
-    }
-  void Flip()
+		// wall climb
+		isWall = Physics2D.OverlapCircle(wallCheck.position,checkWRadius, whatIsWall);
+
+		if (Input.GetKey(KeyCode.D) && isWall == true && isGrounded == false && isLadder == false)
+		{
+			rb.gravityScale *= FallForce;
+
+		}
+
+		isLadder = Physics2D.OverlapCircle(LadderCheck.position, checkLRadius, whatIsLadder);
+
+	}
+
+	void Flip()
   {
       facingRight = !facingRight;
       Vector2 Scaler = transform.localScale;

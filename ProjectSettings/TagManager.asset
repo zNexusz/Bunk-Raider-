@@ -9,6 +9,7 @@ TagManager:
   - Ladder
   - pBullet
   - Enemy
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - Ground
   - Ladder
-  - 
-  - 
+  - Bullet
+  - Enemy
   - 
   - 
   - 
