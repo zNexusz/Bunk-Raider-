@@ -68,9 +68,9 @@ public class Enemy : MonoBehaviour
 	
 	IEnumerator Chase()
 	{
-		Distance *= 10f;
-		yield return new WaitForSeconds(1);
-		Distance /= 10f;
+		pDistance = 100;
+		yield return new WaitForSeconds(3);
+		pDistance = 5;
 	}
 
 	void Shoot()

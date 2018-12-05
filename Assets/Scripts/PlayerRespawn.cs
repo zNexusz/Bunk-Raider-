@@ -11,7 +11,7 @@ public class PlayerRespawn : MonoBehaviour
 	{
 		respawnPoint = transform.position;
 	}
-	void Respawn()
+	public void Respawn()
     {
 		transform.position = respawnPoint;
 	}
@@ -19,11 +19,7 @@ public class PlayerRespawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(playerHealth.health <= 0)
-		{
-			Respawn();
-			playerHealth.health = 3;
-		}
+	
     }
 
 	private void OnTriggerEnter2D(Collider2D other)

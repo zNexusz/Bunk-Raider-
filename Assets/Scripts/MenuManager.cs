@@ -5,28 +5,51 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
 	public PlayerHealth PlayerHealth;
-	public GameObject DeathMenu;
+	public PlayerRespawn playerRespawn;
 	public GameObject player;
+	public Revivetimer revivetimer;
+	float ReviveLimit;
+	public GameObject DeathMenu;
+	public GameObject GameOverMenu;
 
-    // Start is called before the first frame update
-    void Start()
+
+
+	// Start is called before the first frame update
+	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
+		ReviveLimit = 4;
 	}
 
-	// Update is called once per frame
+	public void Dead()
+	{
+		GameOverMenu.SetActive(true);
+	}
+
 	void Update()
     {
-      if(PlayerHealth.health <= 0)
+      if(PlayerHealth.health <= 0 && ReviveLimit > 0)
 		{
 			DeathMenu.SetActive(true);
-		}  
-    }
+		}
+		if (PlayerHealth.health <= 0 && ReviveLimit <= 0)
+		{
+			GameOverMenu.SetActive(true);
+		}
+	}
 
 	public void Revive()
 	{
+		revivetimer.timeLeft = 5;
 		PlayerHealth.health = 3;
 		DeathMenu.SetActive(false);
 		player.SetActive(true);
+		ReviveLimit -= 1;
+		playerRespawn.Respawn();
+	}
+
+	public void Retry()
+	{
+
 	}
 }

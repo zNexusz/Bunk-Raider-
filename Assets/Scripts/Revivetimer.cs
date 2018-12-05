@@ -8,8 +8,8 @@ public class Revivetimer : MonoBehaviour
 
 	public Image Timebar;
 	public float MaxTime = 5f;
-	private float timeLeft;
-
+	public float timeLeft;
+	public MenuManager menuManager;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -27,8 +27,7 @@ public class Revivetimer : MonoBehaviour
 		}
 		else
 		{
-
-
+			menuManager.Dead();
 		}
 	}
 }
