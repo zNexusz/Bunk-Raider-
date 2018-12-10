@@ -54,11 +54,6 @@ public class Enemy : MonoBehaviour
 			}
 		}
 
-		if(health < 4)
-		{
-			StartCoroutine(Chase());
-		}
-
 		if(health <= 0)
 		{
 			Destroy(gameObject);
@@ -94,13 +89,10 @@ public class Enemy : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("pBullet"))
+		if (other.CompareTag("pBullet") && health < 5)
 		{
 			health -= damage;
-		}
-		if (other.CompareTag("Ladder"))
-		{
-			rb.gravityScale = 0;
+			StartCoroutine(Chase());
 		}
 	}
 	#endregion
