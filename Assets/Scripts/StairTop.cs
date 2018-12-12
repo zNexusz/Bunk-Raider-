@@ -15,9 +15,6 @@ public class StairTop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKey(KeyCode.S))
-		{
-		}
 
 		if (Input.GetKey(KeyCode.S))
 		{

@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
 	private float inputHorizontal;
 	private float inputVertical;
 
-	private float checkLRadius=0.3f;
-	private bool isLadder;
-	public Transform LadderCheck;
-	public LayerMask whatIsLadder;
-	public float FallForce;
+	//private float checkLRadius=0.3f;
+	//private bool isLadder;
+	//public Transform LadderCheck;
+	//public LayerMask whatIsLadder;
+
 
 
 
@@ -46,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+		//isWall = Physics2D.OverlapCircle(wallCheck.position, checkWRadius, whatIsWall);
+		//isLadder = Physics2D.OverlapCircle(LadderCheck.position, checkLRadius, whatIsLadder);
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
@@ -72,15 +74,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
 		// wall climb
-		isWall = Physics2D.OverlapCircle(wallCheck.position,checkWRadius, whatIsWall);
-
-		if (Input.GetKey(KeyCode.D) && isWall == true && isGrounded == false && isLadder == false)
-		{
-			rb.gravityScale *= FallForce;
-
-		}
-
-		isLadder = Physics2D.OverlapCircle(LadderCheck.position, checkLRadius, whatIsLadder);
 
 	}
 

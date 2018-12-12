@@ -87,9 +87,9 @@ public class Enemy : MonoBehaviour
 			
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("pBullet") && health < 5)
+		if (other.CompareTag("pBullet"))
 		{
 			health -= damage;
 			StartCoroutine(Chase());
