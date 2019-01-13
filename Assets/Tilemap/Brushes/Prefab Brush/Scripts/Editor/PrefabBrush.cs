@@ -26,6 +26,7 @@ namespace UnityEditor
 			if (instance != null)
 			{
 				Undo.MoveGameObjectToScene(instance, brushTarget.scene, "Paint Prefabs");
+				Erase(grid, brushTarget, position);
 				Undo.RegisterCreatedObjectUndo((Object)instance, "Paint Prefabs");
 				instance.transform.SetParent(brushTarget.transform);
 				instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, m_Z) + new Vector3(.5f, .5f, .5f)));

@@ -13,9 +13,10 @@ public class Shootbullet : MonoBehaviour
 	private Rigidbody2D rb;
 	public float speed;
 	private float side;
-	public float BulletTime;
+	//granade speed
+	public float Gspeed;
 
-	
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -35,10 +36,14 @@ public class Shootbullet : MonoBehaviour
 		if(side < 0)
 		{
 			speed = -5;
+			Gspeed = -2;
+			PlayerPrefs.SetFloat("Side", Gspeed);
 		}
 		else
 		{
 			speed = 5;
+			Gspeed = 2;
+			PlayerPrefs.SetFloat("Side", Gspeed);
 		}
 	}
 
@@ -47,7 +52,6 @@ public class Shootbullet : MonoBehaviour
 		cBullet = Instantiate(Bullet, new Vector2(player.position.x, player.position.y) + offset * transform.localScale.x, Quaternion.identity);
 		GameObject go = (GameObject)cBullet;
 		go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * speed, 0);
-		Destroy(cBullet, BulletTime);
 
 	}
 }

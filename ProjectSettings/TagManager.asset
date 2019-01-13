@@ -10,6 +10,8 @@ TagManager:
   - pBullet
   - Enemy
   - CheckPoint
+  - Granade
+  - Range
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - Ladder
   - Bullet
   - Enemy
-  - 
-  - 
-  - 
+  - Player Bullet
+  - Granade
+  - Player
   - 
   - 
   - 

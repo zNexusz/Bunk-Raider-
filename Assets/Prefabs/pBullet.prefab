@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1384905177879302777}
   - component: {fileID: 1384905177879302780}
   - component: {fileID: 3657605306713748866}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: pBullet
   m_TagString: pBullet
   m_Icon: {fileID: 0}
@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  player: {fileID: 0}
+  Distance: 0
+  Range: 50

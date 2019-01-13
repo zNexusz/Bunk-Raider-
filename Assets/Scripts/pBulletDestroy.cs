@@ -6,6 +6,9 @@ public class pBulletDestroy : MonoBehaviour
 	#region Variables
 
 	public float speed;
+	public Transform player;
+	public float Distance;
+	public float Range=100;
 
 	#endregion
 
@@ -13,13 +16,18 @@ public class pBulletDestroy : MonoBehaviour
 
 	void Start()
 	{
-		StartCoroutine(Destroy());
+	//	StartCoroutine(Destroy());
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	void Update()
 	{
-	//	transform.Translate(speed * Time.deltaTime, 0, 0);
+		if(Distance >= Range)
+		{
+			Destroy(gameObject);
+		}
 
+		Distance = Vector2.Distance(transform.position, player.position);
 	}
 
 	private void OnTriggerEnter2D(Collider2D hitinfo)
@@ -27,13 +35,5 @@ public class pBulletDestroy : MonoBehaviour
 		Destroy(gameObject);
 		gameObject.GetComponent<Renderer>().enabled = false;
 	}
-
-
-	IEnumerator Destroy()
-	{
-		yield return new WaitForSeconds(1.5f);
-		Destroy(gameObject);
-	}
-
 	#endregion
 }

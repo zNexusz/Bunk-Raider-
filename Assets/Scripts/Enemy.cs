@@ -14,16 +14,19 @@ public class Enemy : MonoBehaviour
 	public int damage;
 	public Vector2 offset;
 	private Rigidbody2D rb;
+	public Coin Coin;
 
 	private float timeBtwShots;
 	public float startTimeBtwShots;
 	public GameObject projectile;
 	public Transform player;
 	public GameObject Player;
-
+	public float Kill;
+	public Coin coin;
 
 	#endregion
 	#region Methods
+
 	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,15 +34,16 @@ public class Enemy : MonoBehaviour
 		rb.gravityScale = 1;
 		timeBtwShots = startTimeBtwShots;
 		Player = GameObject.FindGameObjectWithTag("Player");
-
+		Kill = PlayerPrefs.GetFloat("KillCount");
 	}
 
 
 	void Update()
     {
 
-			Distance = Vector2.Distance(transform.position, player.position);
-		if(Distance < pDistance)
+		Distance = Vector2.Distance(transform.position, player.position);
+
+		if (Distance < pDistance)
 		{
 			if (Distance > stoppingDistance)
 			{
@@ -57,6 +61,9 @@ public class Enemy : MonoBehaviour
 		if(health <= 0)
 		{
 			Destroy(gameObject);
+			Kill += 1;
+			PlayerPrefs.SetFloat("KillCount", Kill);
+			coin.earning += 5;
 		}
 
 	}
@@ -67,6 +74,7 @@ public class Enemy : MonoBehaviour
 		yield return new WaitForSeconds(3);
 		pDistance = 5;
 	}
+
 
 	void Shoot()
 	{
@@ -93,6 +101,17 @@ public class Enemy : MonoBehaviour
 		{
 			health -= damage;
 			StartCoroutine(Chase());
+		}
+	}
+
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.CompareTag("Range"))
+		{
+			if (PlayerPrefs.GetFloat("Explode") == 1)
+			{
+				health = 0;
+			}
 		}
 	}
 	#endregion
